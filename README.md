@@ -47,13 +47,13 @@ This project was built with a modern, maintainable, and performant tech stack, e
 
 Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
-### Prerequisites
+### 📋 Prerequisites
 
 - Node.js (v18.x or later)
 - npm or yarn
 - A running instance of the [F1 Simulator Backend API](https://github.com/your-username/f1-simulator-api)
 
-### Installation & Setup
+### 📦 Installation & Setup
 
 1. **Clone the repository:**
    ```bash
@@ -108,6 +108,56 @@ npm run test
 - `npm run lint` - Lints the codebase using ESLint
 - `npm run preview` - Serves the production build locally to preview it before deployment
 - `npm run test` - Runs the test suite
+
+## 📁 Project Structure
+
+```
+src/
+├── api/              # API client configuration
+├── assets/           # Static assets
+├── components/       # Reusable UI components
+│   ├── common/       # Generic components (Button, Spinner)
+│   ├── features/     # Feature-specific components
+│   └── layout/       # Layout components (Header, Footer)
+├── config/           # Application configuration
+├── hooks/            # Custom React hooks
+├── services/         # API services and queries
+├── types/            # TypeScript type definitions
+├── views/            # Page-level components
+└── test/             # Test setup and utilities
+```
+
+## 📝 Development Guidelines
+
+### 💻 Code Style
+
+- Use TypeScript for all new code
+- Follow React best practices and hooks
+- Implement proper error boundaries
+- Write accessible components with ARIA attributes
+- Use absolute imports with `@/` prefix
+
+### ⚡ Performance
+
+- Use React.memo for expensive components
+- Implement proper loading and error states
+- Optimize bundle size with code splitting
+- Use TanStack Query for efficient data fetching
+
+### 🧪 Testing
+
+- Write unit tests for all components
+- Use React Testing Library for component testing
+- Maintain good test coverage
+- Test accessibility features
+
+## 🔌 API Integration
+
+The application is configured to communicate with the F1 What-If Simulator API. Set the following environment variables:
+
+```env
+VITE_API_BASE_URL=http://localhost:8000
+```
 
 ## 🤝 Contributing
 
