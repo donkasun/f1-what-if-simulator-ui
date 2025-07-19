@@ -7,7 +7,7 @@ export const runSimulation = async (params: SimulationRequest): Promise<Simulati
   return response.data;
 };
 
-export const getSimulationResults = async (): Promise<SimulationResponse[]> => {
-  const response = await apiClient.get(API_ENDPOINTS.RESULTS);
+export const getSimulationResults = async (simulationId: string): Promise<SimulationResponse> => {
+  const response = await apiClient.get(API_ENDPOINTS.RESULTS.replace('{simulation_id}', simulationId));
   return response.data;
 }; 

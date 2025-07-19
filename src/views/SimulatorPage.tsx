@@ -8,11 +8,13 @@ const SimulatorPage: React.FC = () => {
 
   const handleRunSimulation = () => {
     runSimulation({
-      scenario: 'Default F1 Scenario',
-      parameters: {
-        track: 'Monaco',
-        weather: 'Dry',
-        strategy: 'Conservative'
+      driver_id: 1,
+      track_id: 1,
+      season: 2024,
+      weather_conditions: 'dry',
+      car_setup: {
+        downforce: 'high',
+        tire_compound: 'soft'
       }
     });
   };

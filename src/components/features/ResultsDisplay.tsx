@@ -2,10 +2,16 @@ import React from 'react';
 import Spinner from '../common/Spinner';
 
 interface SimulationResult {
-  id: string;
-  scenario: string;
-  result: string;
-  timestamp: string;
+  simulation_id: string;
+  driver_id: number;
+  track_id: number;
+  season: number;
+  predicted_lap_time: number;
+  confidence_score: number;
+  weather_conditions: string;
+  car_setup: Record<string, unknown>;
+  created_at: string;
+  processing_time_ms: number;
 }
 
 interface ResultsDisplayProps {
@@ -53,14 +59,20 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({
         <div className="space-y-4">
           {results.map((result) => (
             <div
-              key={result.id}
+              key={result.simulation_id}
               className="border border-gray-200 rounded-md p-4"
             >
               <div className="flex justify-between items-start mb-2">
-                <h3 className="font-medium">{result.scenario}</h3>
-                <span className="text-sm text-gray-500">{result.timestamp}</span>
+                <h3 className="font-medium">Driver {result.driver_id} - Track {result.track_id}</h3>
+                <span className="text-sm text-gray-500">{result.created_at}</span>
               </div>
-              <p className="text-gray-700">{result.result}</p>
+              <p className="text-gray-700">
+                Predicted Lap Time: {result.predicted_lap_time.toFixed(3)}s
+                <br />
+                Confidence: {(result.confidence_score * 100).toFixed(1)}%
+                <br />
+                Weather: {result.weather_conditions}
+              </p>
             </div>
           ))}
         </div>

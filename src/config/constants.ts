@@ -1,7 +1,7 @@
 // API Configuration
 export const API_ENDPOINTS = {
-  SIMULATION: '/api/v1/simulation',
-  RESULTS: '/api/v1/results',
+  SIMULATION: '/api/v1/simulate',
+  RESULTS: '/api/v1/simulation/{simulation_id}',
 } as const;
 
 // TanStack Query Keys
